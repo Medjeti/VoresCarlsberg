@@ -1,0 +1,154 @@
+﻿.navbar-default.designa {
+    font-family: $font-family-bold;
+    position: fixed;
+	top: 0;
+    z-index: 8000;
+    width: 100%;
+    text-align: center;
+	border: 0;
+
+    background-color: transparent;
+    background-image: url('/images/nav-bg.png');
+
+	&.open {
+		background: #fff;
+	}
+
+    @media only screen and (min-width : $screen-sm) {
+        .navbar-collapse {
+            display: inline-block !important;
+
+            .navbar-nav {
+                display: inline-block;
+                float: none;
+
+				/*top: 40%;
+				transform: translateY(-50%);
+				position: relative;*/
+            }
+        }
+    }
+	
+	.navbar-collapse {
+		height: 50px;
+		transition: margin 0.4s;
+	}
+
+	.navbar-collapse.in {
+		background: $designa-color-spot-light;
+		padding-top: 30px;
+	}
+
+    .navbar-nav > li > a  {
+		color: $designa-color-white;
+		font-family: $font-family-bold;
+		font-size: $font-size-large;
+        padding-top: 15px;
+        padding-bottom: 6px;
+        text-transform: uppercase;
+		
+
+        &:hover {
+				
+			text-decoration: underline;
+		}
+
+        &.active {
+
+        }
+    }
+
+    .navbar-header {
+        display: block;
+        width: 100%;
+		margin: 0;
+		transition: margin 0.4s;
+		height: 72px;
+
+		.navbar-toggle {
+			background: none !important;
+			border: none;
+			margin-right: 0;
+
+			.icon-open {
+				color: #fff;
+			}
+			.icon-close {
+				color: #000;
+			}
+		}
+
+        .navbar-brand {
+            float: none;
+            margin: 0 auto;            
+            padding: 25px 0;
+			//margin-left: 15px;
+			img {
+				width: 260px;
+			}
+        }
+
+        h5 {
+            text-transform: uppercase;
+            margin: 15px 0 18px;
+        }
+    }
+
+	@media (max-width: $screen-xs-max) {
+		.navbar-header .navbar-brand {
+			padding: 23px 0 27px;
+		}
+		.navbar-nav {
+			margin-top: 20%;
+		}
+	}
+
+	@media (min-width: $screen-xs-max) {
+		.navbar-nav > li > a {
+			font-size: 16px;
+
+            color: $designa-color-light;
+
+            &:hover {
+			color: $designa-color-white;
+            text-decoration: none; 
+		    }
+
+            &.active {
+                color: $designa-color-white;
+            }
+			
+		}
+		.navbar-header .navbar-brand {
+			padding-bottom: 22px;
+
+            img {
+				width: auto;
+                margin-top: 5px;
+			}
+		}
+		.navbar-collapse {
+			//margin-top: 10px;
+			margin-bottom: 8px;
+		}
+
+		body.header-hide & {
+			.navbar-header {
+				//transform: translateY(-70px);
+				margin-top: -72px;
+			}
+			.navbar-collapse {
+				margin-top: 9px;
+			}
+		}
+
+	}
+
+	@media (min-width: $screen-md-min) { 
+		height: 130px;
+		body.header-hide & {
+			height: auto;
+		}
+	}
+
+}

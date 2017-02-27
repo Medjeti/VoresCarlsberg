@@ -1,0 +1,18 @@
+﻿$navigation-height: 70px;
+$section-height: calc(100% - #{$navigation-height});
+$section-min-height: 600px;
+
+@media (min-width: $screen-md-min) { 
+	section.full-height {
+		height: $section-height;
+		min-height: $section-min-height;
+	}
+
+	.full-height {
+		height: 100%;
+	}
+
+	.half-height {
+		height: 50%;
+	}
+}

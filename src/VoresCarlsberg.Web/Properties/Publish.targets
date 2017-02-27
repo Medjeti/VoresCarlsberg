@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="CopyCustomFiles">
+    <ItemGroup>
+      <_CustomFiles_Css Include="css\**\*" />
+      <_CustomFiles_Scripts Include="scripts\**\*" />
+      <_CustomFiles_Templates Include="templates\**\*" />
+      <_CustomFiles_Img Include="images\**\*" />
+      <_CustomFiles_Fonts Include="fonts\**\*" />
+      
+      <FilesForPackagingFromProject Include="%(_CustomFiles_Css.Identity)">
+        <DestinationRelativePath>css\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+      <FilesForPackagingFromProject Include="%(_CustomFiles_Scripts.Identity)">
+        <DestinationRelativePath>scripts\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+      <FilesForPackagingFromProject Include="%(_CustomFiles_Img.Identity)">
+        <DestinationRelativePath>images\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+        <FilesForPackagingFromProject Include="%(_CustomFiles_Templates.Identity)">
+        <DestinationRelativePath>templates\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+      <FilesForPackagingFromProject Include="%(_CustomFiles_Fonts.Identity)">
+        <DestinationRelativePath>fonts\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="Gulp">
+    <Message Text="Gulp" Importance="high"/>
+    <Exec WorkingDirectory="$(ProjectDir)assets" Command="gulp deploy" />
+  </Target>
+</Project>

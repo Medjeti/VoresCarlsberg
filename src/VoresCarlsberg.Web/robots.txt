@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /bin/
+Disallow: /config/
+Disallow: /data/
+Disallow: /Views/

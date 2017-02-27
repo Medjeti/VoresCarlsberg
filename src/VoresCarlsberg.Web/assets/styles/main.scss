@@ -1,0 +1,28 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+@import "bootstrap/variables"; 
+@import "bootstrap/bootstrap";
+@import "bootstrap/bootstrap_addons";
+
+@import "base/mixins";
+@import "base/base";
+@import "base/typography";
+@import "base/icons";
+@import "base/type";
+@import "base/buttons";
+@import "base/forms";
+@import "base/helpers"; 
+//@import "base/full_height"; 
+
+//@import "layout/layout_navigation";
+//@import "layout/layout_footer";
+@import "layout/_modal";
+
+
+/*
+.container {
+  transition: width ease 1s;
+}
+*/

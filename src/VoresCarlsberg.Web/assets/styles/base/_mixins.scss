@@ -1,0 +1,66 @@
+@mixin section-padding($padding: 100px) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+/*@mixin first-header-top-margin($margin: 0, $media-query: null) {
+  @if $media-query == null {
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    h5, .h5 {
+      &:first-child {
+        margin-top: $margin;
+      }
+    }
+  } @else {
+    @media (min-width: $media-query) {
+      h1, .h1,
+      h2, .h2,
+      h3, .h3,
+      h4, .h4,
+      h5, .h5 {
+        &:first-child {
+          margin-top: $margin;
+        }
+      }
+    }
+  }
+}*/
+
+@mixin max-width($width: 460px) {
+  max-width: $width;
+  width: 100%;
+}
+
+@mixin iphone-6 {
+  @media (min-width: 660px) {
+    @content;
+  }
+}
+
+@mixin iphone-6-plus {
+  @media (min-width: 735px) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (min-width: $screen-sm-min) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $screen-md-min) {
+    @content;
+  }
+}
+
+@mixin desktop-wide {
+  @media (min-width: $screen-lg-min) {
+    @content;
+  }
+}

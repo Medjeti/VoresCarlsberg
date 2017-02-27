@@ -1,0 +1,47 @@
+// Common styles
+.btn {
+    font-family: $font-family-bold;
+
+   // border-radius: 0;
+    text-transform: uppercase;
+    padding: 13px 25px;
+   // border-radius: 3px;
+    &:active,
+    &.active {
+        background-image: none;
+    }
+}
+
+.btn-white {
+  @include button-variant($designa-color-spot, #f3f3f3, #fff);
+}
+
+.btn-light {
+  @include button-variant(#fff, $designa-color-light, #fff);  
+}
+
+/*// Common styles
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+    text-shadow: none;
+    @include box-shadow(none);
+    // Reset the shadow
+    &:active,
+    &.active {
+        @include box-shadow(none);
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        @include box-shadow(none);
+    }
+
+    .badge {
+        text-shadow: none;
+    }
+}*/

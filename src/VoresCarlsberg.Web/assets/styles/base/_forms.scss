@@ -1,0 +1,33 @@
+input.form-control {
+
+    &.input-lg {
+        font-size: 16px;
+    }	
+
+    box-shadow:none;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+form.ng-submitted input.ng-invalid {
+	border-color: #c31e89 !important;
+	color: #c31e89;
+
+	&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+		color:    #c31e89;
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color:    #c31e89;
+		opacity:  1;
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color:    #c31e89;
+		opacity:  1;
+	}
+	&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		color:    #c31e89;
+	}
+	
+}

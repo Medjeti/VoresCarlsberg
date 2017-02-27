@@ -1,0 +1,48 @@
+﻿@using System.Configuration
+@using noerd.Web.Extensions
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section MetaData {
+    
+    <title>Bricks by DESIGNA – byg dit køkken, som du vil have detA</title>
+    <meta name="description" content="Med Bricks by DESIGNA bestemmer du selv, hvor skuffen skal sidde i dit køkken. Leg med tanken i visualizeren og få masser af inspiration til køkkenkøbet.">
+
+    @{
+        var metaImage = Request.GetBaseUrl() + Uri.EscapeUriString("/images/visualizer/share-img.jpg?w=1200");
+    }
+    <meta property="og:url" content="@Request.Url" />
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="Lige et tip..." />
+    <meta property="og:description" content="Jeg har leget lidt med det nyt Bricks-køkken. Ser det ikke fedt ud? Du kan også prøve. Bare klik her" />
+    <meta property="og:image" content="@metaImage" />
+    <meta property="fb:app_id" content="@ConfigurationManager.AppSettings.Get("Facebook.AppId")"/>
+}
+
+<nav class="navbar navbar-default designa hide-in-landscape-mobile" navigation="">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-class="{open: !navigation.isCollapsed}" ng-click="navigation.menuToggle()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand"><a href="/"><img src="/images/logo.png"/></a>
+            </div>
+
+            <h5 class="header-text">Velkommen til {{sharedKitchenName}}</h5>
+        </div>
+    </div><!-- /.container-fluid --> 
+</nav>
+
+@foreach (var partial in Model.Partials)
+{
+    @Html.Action("Render", "Partials", new { model = partial })
+}
+
+
+

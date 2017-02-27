@@ -1,0 +1,651 @@
+﻿{
+  "gridSizeX": 32,
+  "gridSizeY": 11,
+  "sizes": {
+    "40x12": [ 4, 2 ],
+    "50x12": [ 5, 2 ],
+    "60x12": [ 6, 2 ],
+    "80x12": [ 8, 2 ],
+    "100x12": [ 10, 2 ],
+
+    "40x25": [ 4, 4 ],
+    "50x25": [ 5, 4 ],
+    "60x25": [ 6, 4 ],
+    "80x25": [ 8, 4 ],
+    "100x25": [ 10, 4 ],
+
+    "40x32": [ 4, 5 ],
+    "50x32": [ 5, 5 ],
+    "60x32": [ 6, 5 ],
+    "80x32": [ 8, 5 ],
+    "100x32": [ 10, 5 ]
+  },
+
+  "elements": [
+    {
+      "id": "orra_opaco",
+      "name": "Orra Opaco",
+      "pricegroup": 2,
+      "materials": [
+        {
+          "id": "white",
+          "name": "Hvid"
+        }
+      ]
+    },
+    {
+      "id": "lusso",
+      "name": "Lusso",
+      "pricegroup": 4,
+      "materials": [
+        {
+          "id": "black",
+          "name": "Sort"
+        },
+        {
+          "id": "dark_blue",
+          "name": "Mørk blå"
+        },
+        {
+          "id": "light_gray",
+          "name": "Lys grå"
+        },
+        {
+          "id": "green",
+          "name": "Grøn"
+        },
+        {
+          "id": "light_blue",
+          "name": "Lys blå"
+        },
+        {
+          "id": "gray",
+          "name": "Grå"
+        },
+        {
+          "id": "peach",
+          "name": "Fersken"
+        },
+        {
+          "id": "dark_gray",
+          "name": "Mørk grå"
+        }
+      ]
+    },
+    {
+      "id": "zega",
+      "name": "Zega",
+      "pricegroup": 4,
+      "materials": [
+        {
+          "id": "white",
+          "name": "Hvid med sort kant"
+        }
+      ]
+    },
+    {
+      "id": "multi_gf",
+      "name": "Multi GF",
+      "pricegroup": 6,
+      "materials": [
+        {
+          "id": "light_gray",
+          "name": "Lys grå med sort kant"
+        },
+        {
+          "id": "white",
+          "name": "Hvid med rustik eg kant"
+        },
+        {
+          "id": "cafe_latte",
+          "name": "Café latte med natur eg kant"
+        },
+        {
+          "id": "dark_gray",
+          "name": "Mørk grå med rustik eg"
+        }
+      ]
+    },
+
+    {
+      "id": "orra_legna",
+      "name": "Orra Legna",
+      "pricegroup": 2,
+      "materials": [
+        {
+          "id": "light_gray",
+          "name": "Lys grå træstruktur"
+        }
+      ]
+    },
+    {
+      "id": "cassiopeia",
+      "name": "Cassiopeia",
+      "pricegroup": 4,
+      "materials": [
+        {
+          "id": "white",
+          "name": "Hvidlakeret højglans"
+        }
+      ]
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "pricegroup": 4,
+      "materials": [
+        {
+          "id": "white",
+          "name": "Hvidlakeret"
+        }
+      ]
+    },
+    {
+      "id": "scuro",
+      "name": "Scuro",
+      "pricegroup": 4,
+      "materials": [
+        {
+          "id": "black",
+          "name": "Mat sort lamiant"
+        }
+      ]
+    },
+    {
+      "id": "orra_lucido",
+      "name": "Orra Lucido",
+      "pricegroup": 2,
+      "materials": [
+        {
+          "id": "white",
+          "name": "Hvid højglans"
+        }
+      ]
+    },
+    {
+      "id": "selene",
+      "name": "Selene",
+      "pricegroup": 2,
+      "materials": [
+        {
+          "id": "white",
+          "name": "Hvid"
+        }
+      ]
+    }
+  ],
+
+  "tableTops": [
+    {
+      "id": "white",
+      "name": "Hvid",
+      "price":  8754
+    },
+    {
+      "id": "dark_gray",
+      "name": "Mørk grå",
+      "price": 8754
+    },
+    {
+      "id": "black",
+      "name": "Sort",
+      "price": 8754
+    }
+  ],
+  "plinths": [
+    {
+      "id": "white",
+      "name": "Hvid",
+      "price": 1556
+    },
+    {
+      "id": "natur_eg",
+      "name": "Natur eg",
+      "price": 3004
+    },
+    {
+      "id": "orra_legna",
+      "name": "Orra Legna",
+      "price": 1580
+    },
+    {
+      "id": "rustik_eg",
+      "name": "Rustik eg",
+      "price": 3004
+    },
+    {
+      "id": "sort_ask",
+      "name": "Sort ask",
+      "price": 1580
+    },
+    {
+      "id": "sort_eg",
+      "name": "Sort eg",
+      "price": 3004
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "green",
+      "name": "Grøn baggrund"
+    },
+    {
+      "id": "beige",
+      "name": "Beige baggrund"
+    },
+    {
+      "id": "grey",
+      "name": "Grå baggrund"
+    }
+  ],
+
+  "pricegroups": [
+    { "id": 1 },
+    { "id": 2 },
+    { "id": 3 },
+    { "id": 4 },
+    { "id": 5 },
+    { "id": 6 }
+  ],
+
+  "prices": {
+
+    "40x12": [
+      {
+        "group": 1,
+        "price": 1881
+      },
+      {
+        "group": 2,
+        "price": 1897
+      },
+      {
+        "group": 3,
+        "price": 1958
+      },
+      {
+        "group": 4,
+        "price": 2115
+      },
+      {
+        "group": 5,
+        "price": 2186
+      },
+      {
+        "group": 5,
+        "price": 2271
+      },
+      {
+        "group": 6,
+        "price": 2271
+      }
+    ],
+    "50x12": [
+      {
+        "group": 1,
+        "price": 1908
+      },
+      {
+        "group": 2,
+        "price": 1928
+      },
+      {
+        "group": 3,
+        "price": 1986
+      },
+      {
+        "group": 4,
+        "price": 2137
+      },
+      {
+        "group": 5,
+        "price": 2208
+      },
+      {
+        "group": 6,
+        "price": 2293
+      }
+    ],
+    "60x12": [
+      {
+        "group": 1,
+        "price": 1990
+      },
+      {
+        "group": 2,
+        "price": 2010
+      },
+      {
+        "group": 3,
+        "price": 2080
+      },
+      {
+        "group": 4,
+        "price": 2210
+      },
+      {
+        "group": 5,
+        "price": 2281
+      },
+      {
+        "group": 6,
+        "price": 2367
+      }
+    ],
+    "80x12": [
+      {
+        "group": 1,
+        "price": 2363
+      },
+      {
+        "group": 2,
+        "price": 2389
+      },
+      {
+        "group": 3,
+        "price": 2484
+      },
+      {
+        "group": 4,
+        "price": 2575
+      },
+      {
+        "group": 5,
+        "price": 2646
+      },
+      {
+        "group": 6,
+        "price": 2731
+      }
+    ],
+    "100x12": [
+      {
+        "group": 1,
+        "price": 2625
+      },
+      {
+        "group": 2,
+        "price": 2656
+      },
+      {
+        "group": 3,
+        "price": 2757
+      },
+      {
+        "group": 4,
+        "price": 2860
+      },
+      {
+        "group": 5,
+        "price": 2938
+      },
+      {
+        "group": 6,
+        "price": 3031
+      }
+    ],
+
+    "40x25": [
+      {
+        "group": 1,
+        "price": 2287
+      },
+      {
+        "group": 2,
+        "price": 2327
+      },
+      {
+        "group": 3,
+        "price": 2365
+      },
+      {
+        "group": 4,
+        "price": 2516
+      },
+      {
+        "group": 5,
+        "price": 2587
+      },
+      {
+        "group": 6,
+        "price": 2672
+      }
+    ],
+    "50x25": [
+      {
+        "group": 1,
+        "price": 2333
+      },
+      {
+        "group": 2,
+        "price": 2379
+      },
+      {
+        "group": 3,
+        "price": 2420
+      },
+      {
+        "group": 4,
+        "price": 2586
+      },
+      {
+        "group": 5,
+        "price": 2664
+      },
+      {
+        "group": 6,
+        "price": 2758
+      }
+    ],
+    "60x25": [
+      {
+        "group": 1,
+        "price": 2452
+      },
+      {
+        "group": 2,
+        "price": 2501
+      },
+      {
+        "group": 3,
+        "price": 2550
+      },
+      {
+        "group": 4,
+        "price": 2705
+      },
+      {
+        "group": 5,
+        "price": 2798
+      },
+      {
+        "group": 6,
+        "price": 2900
+      }
+    ],
+    "80x25": [
+      {
+        "group": 1,
+        "price": 2887
+      },
+      {
+        "group": 2,
+        "price": 2949
+      },
+      {
+        "group": 3,
+        "price": 3003
+      },
+      {
+        "group": 4,
+        "price": 3163
+      },
+      {
+        "group": 5,
+        "price": 3288
+      },
+      {
+        "group": 6,
+        "price": 3391
+      }
+    ],
+    "100x25": [
+      {
+        "group": 1,
+        "price": 3199
+      },
+      {
+        "group": 2,
+        "price": 3272
+      },
+      {
+        "group": 3,
+        "price": 3332
+      },
+      {
+        "group": 4,
+        "price": 3495
+      },
+      {
+        "group": 5,
+        "price": 3621
+      },
+      {
+        "group": 6,
+        "price": 3799
+      }
+    ],
+
+    "40x32": [
+      {
+        "group": 1,
+        "price": 2309
+      },
+      {
+        "group": 2,
+        "price": 2360
+      },
+      {
+        "group": 3,
+        "price": 2391
+      },
+      {
+        "group": 4,
+        "price": 2564
+      },
+      {
+        "group": 5,
+        "price": 2623
+      },
+      {
+        "group": 6,
+        "price": 2737
+      }
+    ],
+    "50x32": [
+      {
+        "group": 1,
+        "price": 2351
+      },
+      {
+        "group": 2,
+        "price": 2418
+      },
+      {
+        "group": 3,
+        "price": 2452
+      },
+      {
+        "group": 4,
+        "price": 2623
+      },
+      {
+        "group": 5,
+        "price": 2721
+      },
+      {
+        "group": 6,
+        "price": 2826
+      }
+    ],
+    "60x32": [
+      {
+        "group": 1,
+        "price": 2471
+      },
+      {
+        "group": 2,
+        "price": 2546
+      },
+      {
+        "group": 3,
+        "price": 2583
+      },
+      {
+        "group": 4,
+        "price": 2772
+      },
+      {
+        "group": 5,
+        "price": 2889
+      },
+      {
+        "group": 6,
+        "price": 3010
+      }
+    ],
+    "80x32": [
+      {
+        "group": 1,
+        "price": 2909
+      },
+      {
+        "group": 2,
+        "price": 3003
+      },
+      {
+        "group": 3,
+        "price": 3049
+      },
+      {
+        "group": 4,
+        "price": 3213
+      },
+      {
+        "group": 5,
+        "price": 3350
+      },
+      {
+        "group": 6,
+        "price": 3528
+      }
+    ],
+    "100x32": [
+      {
+        "group": 1,
+        "price": 3222
+      },
+      {
+        "group": 2,
+        "price": 3334
+      },
+      {
+        "group": 3,
+        "price": 3389
+      },
+      {
+        "group": 4,
+        "price": 3537
+      },
+      {
+        "group": 5,
+        "price": 3711
+      },
+      {
+        "group": 6,
+        "price": 3887
+      }
+    ]
+    
+  }
+}
