@@ -2,11 +2,11 @@
 	'use strict';
 
 	angular
-        .module('designa')
-        .service('newsletterService', newsletterService);
+        .module('VoresCarlsberg')
+        .service('formService', formService);
 
 	/* @ngInject */
-	function newsletterService($http, googleAnalyticsService) {
+	function formService($http) {
 
 		// -------------------------------------------------------------------------
 		// Public Method & Variables
@@ -14,19 +14,30 @@
 
 		/*jshint validthis:true */
 		this.subscribe = subscribe;
+		this.getDivisions = getDivisions;
 
 
 		// -------------------------------------------------------------------------
 
 		function subscribe(email) {
-		    googleAnalyticsService.trackEvent('Newsletter', 'Subscribe');
-			var response = $http({
-				url: '/api/newsletter/subscribe',
-				data: { email: email },
-				method: 'POST'
-			});
+		    
+		}
 
-			return response;
+		function getDivisions() {
+			var list = [
+				"Business Development",
+				"Business IT",
+				"Communication",
+				"Finance",
+				"Log. Stabe",
+				"Marketing",
+				"Prod. Stabe",
+				"Prod. Øst",
+				"Salg Off Trade",
+				"Salg On Trade",
+				"Øvrige"
+			];
+			return list;
 		}
 
 		

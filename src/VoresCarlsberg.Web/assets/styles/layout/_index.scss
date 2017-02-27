@@ -1,0 +1,120 @@
+﻿.outer-container {
+	background: #fff;
+	margin-top: 50px;
+	padding-bottom: 40px;
+}
+
+img.logo {
+	display: block;
+	margin: 40px auto 40px;
+	width: 260px;
+}
+
+.intro-text {
+	h1 {
+		text-align: center;
+	}
+
+	padding-bottom: 2em;
+}
+
+form {
+	label {
+		font-family: CarlsbergBold;		
+		//line-height: 50px;
+		 
+	}
+
+	.input-wrapper.validation {
+		&::after {
+			content: "*";
+			font-weight: 700;
+			font-size: 1em;
+			position: absolute;
+			line-height: 0;
+			right: 35px;
+			top: 28.57142857px;
+			color: #8a968f;
+
+		}
+	}
+
+	input[type=text], input[type=email], select, textarea {
+		background-color: #f5f5f5;
+		border: none;
+		padding: 0 20px;
+		height: 50px;
+		width: 100%;
+		margin-bottom: 20px;			
+	}
+
+	textarea {
+		height: 150px;
+		padding-top: 15px;
+	}
+
+	.buttons-1 {
+		div {
+			text-align: center;
+
+			&:first-child {
+				padding-bottom: 1em;
+			}
+		}
+	}
+
+	.buttons-2 {
+		div {
+			text-align: center;
+
+		}
+	}
+
+	.validation-msg {
+		text-align: center;
+		padding-bottom: 1em;
+
+		p {
+			color: $brand-danger;
+		}
+	}
+
+	.step2-intro {
+		margin-bottom: 2em;	
+	}
+}
+
+// ------------------------------------------------------------------------------
+
+@media (min-width: $screen-xs-max) {
+	
+}
+
+@media (min-width: $screen-sm-min) {
+	img.logo {
+		width: 400px;
+	}
+
+	.buttons-1 {
+		div:first-child {
+			text-align: right;
+		}
+
+		div:nth-child(2) {
+			text-align: left;
+		}
+
+		padding: 20px 0;				
+	}
+}
+
+@media (min-width: $screen-md-min) { 
+	
+	form label {
+		float: right;
+		display: block;
+		text-align: right;
+		padding-top: 14px;
+	}
+
+}

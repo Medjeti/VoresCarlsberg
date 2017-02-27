@@ -4,7 +4,251 @@
 	ViewBag.Title = "Index";
 }
 
-<h1>Velkommen til Vores Carlsberg</h1>
+<div class="container outer-container" ng-controller="FormCtrl">
+	<div class="row intro-text">
+		<div class="col-md-12">
+			<img src="/images/logo.png" class="logo"/>
+		</div>
+		<div class="col-md-offset-3 col-md-6" ng-if="formFlow > 0 && formFlow < 3">
+			<h2>Kære kollega!</h2>
+			<p>
+				Vi vil gerne holde en fest sammen med dig.<br/>
+				Derfor vil vi gerne invitere alle i Carlsberg Danmark til <b>"Vores Carlsberg"</b>.
+			</p>
+			<p>
+				<b>"Vores Carlsberg"</b> er helt specielt til dig og alle dine kollegaer, og vi håber derfor, at du vil være med til at fejre dig selv– og ikke mindst dine kollegaer – for vi er alle en del af "Vores Carlsberg" og uden ’Vi’ er der ingen ’Vores’!<br/>
+			</p>
+			<p>
+				Festen foregår i Fredericia Messecenter d. 1. april 2017 og starter kl. XX:XX.
+			</p>
+		</div>
+	</div>
 
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	<form name="form" novalidate>
+		<div ng-if="formFlow > 0 && formFlow < 3">
+			<div class="row">
+				<div class="col-md-offset-1 col-md-3">
+					<label>Dit fornavn</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper validation">
+						<input type="text" maxlength="25" required ng-model="guest.firstname"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-1 col-md-3">
+					<label>Medarbejdernr.</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper validation">
+						<input type="text" maxlength="6" required ng-model="guest.employeenumber" />
+					</div>
+				</div>
+			</div>
+			@*<div class="row">
+				<div class="col-md-offset-1 col-md-3">
+					<label>Vælg afdeling</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<select ng-options="item as item for item in divisions" required ng-model="guest.division">
+							
+						</select>
+					</div>
+				</div>
+			</div>*@
+		</div>
+
+		<div ng-if="formFlow === 1">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6 validation-msg" ng-if="form.$submitted && !form.$valid">
+					<p>* angiver et påkrævet felt</p>
+				</div>
+				</div>
+			<div class="row buttons buttons-1">
+				<div class="col-sm-6 ">
+					<input type="submit" class="btn btn-primary" value="Ja, jeg vil gerne komme!" ng-click="nextStep(form, 2)"/>
+				</div>
+				<div class="col-sm-6 ">
+					<input type="submit" class="btn btn-default" value="Æv, jeg kan ikke komme" ng-click="nextStep(form, 0)"/>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="formFlow > 1 && formFlow < 3">
+			<div class="row step2-intro">
+				<div class="col-md-offset-3 col-md-6">
+					<h3>Hej {{guest.firstname}}!</h3>
+					<p>
+						Vi vil gerne vide lidt mere om dig.<br/>
+						Udfyld venligst de resterende felter for at fuldføre din tilmelding.
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Dit telefonnummer</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<input type="text"  maxlength="8" ng-model="guest.phonenumber"/>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<label>Jeg vil gerne med bus:</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<select>
+							<option value="">Vælg...</option>
+							<option>Bus fra A kl. B</option>
+							<option>Bus fra X kl. Y</option>
+							<option>Bus fra Z kl. Q</option>
+							<option>Bus fra X kl. Y</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Hvad er din yndlingsøl?</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<select>
+							<option value="">Vælg...</option>
+							<option>Carls Selection</option>
+							<option>Tuborg Classic</option>
+							<option>Brewmasters Collection</option>
+							<option>Semper Ardens</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Hvad er din yndlingshobby/fritidsinteresse?</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<select>
+							<option value="">Vælg...</option>
+							<option>Biler</option>
+							<option>Fodbold</option>
+							<option>Cykling</option>
+							<option>Musikband</option>
+							<option>Blomster</option>
+							<option>Badminton</option>
+							<option>Sejle</option>
+							<option>Fiske</option>
+							<option>Øl</option>
+							<option>Haven</option>
+							<option>Tatoveringer</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Hvad er din nr. 2 hobby/fritidsinteresse?</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<select>
+							<option value="">Vælg...</option>
+							<option>Biler</option>
+							<option>Fodbold</option>
+							<option>Cykling</option>
+							<option>Musikband</option>
+							<option>Blomster</option>
+							<option>Badminton</option>
+							<option>Sejle</option>
+							<option>Fiske</option>
+							<option>Øl</option>
+							<option>Haven</option>
+							<option>Tatoveringer</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Hvilken sang skal bandet spille?</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<select>
+							<option value="">Vælg...</option>
+							<option>Militskvinder</option>
+							<option>Picnic</option>
+							<option>Nordhavn Station</option>
+							<option>Lorteparforhold!</option>
+							<option>Fødselsdagssang</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Har du madallergier e.l.?</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<input type="text" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Har du en kollega, der har gjort en ekstra indsats ifm. festen? Skriv navn og afdeling her.</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<textarea></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row buttons buttons-2">
+				<div class="col-sm-12 ">
+					<input type="submit" class="btn btn-primary" value="Tilmeld mig" ng-click="nextStep(form, 3)"/>
+				</div>
+			</div>
+		</div>
+
+		@*-------------------------------------------------------------------------*@
+
+		<div ng-if="formFlow === 0">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
+					<p>Vi er kede af, at du ikke kan komme.</p>
+					<p>
+						Skulle du fortryde din framelding, kan du altid tilmelde dig på et senere tidspunkt her på hjemmesiden.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="formFlow === 3">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
+					<h3>Vi glæder os til at se dig!</h3>
+					<p>
+						Tak for din tilmelding til <b>"Vores Carlsberg"</b>.<br/>
+						Hvis du ønsker at ændre dine indtastninger, kan du altid besøge hjemmesiden igen og logge ind med dit navn og medarbejdernr.
+					</p>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div id="step2"></div>
+</div>
+
+
+
+
 

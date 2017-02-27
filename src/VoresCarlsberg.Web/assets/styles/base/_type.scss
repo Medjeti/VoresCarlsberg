@@ -1,16 +1,10 @@
 h1 {
 	font-family: "CarlsbergBold";
+	color: $brand-primary;
 }
 
 p {
     font-family: "CarlsbergRegular";
+	color: $brand-primary;
 }
 
-ol {
-    padding-left: 23px;
-    margin-bottom: 0;
-    li {
-        margin-bottom: 10px;
-        padding-left: 5px;
-    }
-}

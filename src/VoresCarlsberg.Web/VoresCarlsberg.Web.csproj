@@ -154,8 +154,8 @@
     <Content Include="assets\gulpfile.js" />
     <Content Include="assets\libs\matchMedia.js" />
     <Content Include="assets\scripts\app.js" />
-    <Content Include="assets\scripts\partials\default.controller.js" />
-    <Content Include="assets\scripts\services\newsletter.service.js" />
+    <Content Include="assets\scripts\form.controller.js" />
+    <Content Include="assets\scripts\services\form.service.js" />
     <Content Include="assets\scripts\templates.js" />
     <None Include="assets\styles\base\_full_height.scss" />
     <Content Include="assets\styles\layout\_layout_footer.scss" />
@@ -189,6 +189,7 @@
     <Content Include="assets\bower.json" />
     <Content Include="assets\package.json" />
     <Content Include="data\designa.json" />
+    <Content Include="assets\styles\layout\_index.scss" />
     <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Properties\PublishProfiles\Staging.pubxml" />
     <Content Include="robots.txt" />
@@ -232,7 +233,9 @@
       <Name>VoresCarlsberg</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="assets\images\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,4 +1,4 @@
-﻿@using System.Configuration
+@using System.Configuration
 @using System.Globalization
 <!DOCTYPE html>
 
@@ -12,7 +12,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    @RenderSection("MetaData", false)
+	<title>Vores Carlsberg</title>
 
     @if (HttpContext.Current.IsDebuggingEnabled)
     {
@@ -23,10 +23,9 @@
         <link rel="stylesheet" href="/css/main.min.@(cacheBusting).css" />
     }
 
-
 </head>
 
-<body ng-app="designa" data-culture="@CultureInfo.CurrentCulture.Name" config>
+<body ng-app="VoresCarlsberg" data-culture="@CultureInfo.CurrentCulture.Name" config>
 
 @if (!HttpContext.Current.IsDebuggingEnabled)
     {
