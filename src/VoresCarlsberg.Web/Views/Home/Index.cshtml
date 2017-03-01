@@ -7,16 +7,16 @@
 <div class="container outer-container" ng-controller="FormCtrl">
 	<div class="row intro-text">
 		<div class="col-md-12">
-			<img src="/images/logo.png" class="logo"/>
+			<img src="/images/logo.png" class="logo" />
 		</div>
 		<div class="col-md-offset-3 col-md-6" ng-if="formFlow > 0 && formFlow < 3">
 			<h2>Kære kollega!</h2>
 			<p>
-				Vi vil gerne holde en fest sammen med dig.<br/>
+				Vi vil gerne holde en fest sammen med dig.<br />
 				Derfor vil vi gerne invitere alle i Carlsberg Danmark til <b>"Vores Carlsberg"</b>.
 			</p>
 			<p>
-				<b>"Vores Carlsberg"</b> er helt specielt til dig og alle dine kollegaer, og vi håber derfor, at du vil være med til at fejre dig selv– og ikke mindst dine kollegaer – for vi er alle en del af "Vores Carlsberg" og uden ’Vi’ er der ingen ’Vores’!<br/>
+				<b>"Vores Carlsberg"</b> er helt specielt til dig og alle dine kollegaer, og vi håber derfor, at du vil være med til at fejre dig selv – og ikke mindst dine kollegaer – for vi er alle en del af <b>"Vores Carlsberg"</b> og uden ’Vi’ er der ingen ’Vores’!
 			</p>
 			<p>
 				Festen foregår i Fredericia Messecenter d. 1. april 2017 og starter kl. XX:XX.
@@ -32,7 +32,8 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper validation">
-						<input type="text" maxlength="25" required ng-change="change()" ng-model="guest.firstname"/>
+						<input type="text" maxlength="25" required ng-disabled="formFlow === 2" ng-change="change()" ng-model="guest.firstname" />
+						<div class="req">*</div>
 					</div>
 				</div>
 			</div>
@@ -42,31 +43,38 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper validation">
-						<input type="text" maxlength="6" required ng-change="change()" ng-model="guest.employeeno" />
+						<input type="text" maxlength="6" required ng-disabled="formFlow === 2" ng-change="change()" ng-model="guest.employeeno" />
+						<div class="req">*</div>
 					</div>
 				</div>
 			</div>
-		
+
 		</div>
 
 		<div ng-if="formFlow === 1">
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6 login-error" ng-if="loginError">
-					<p>Vi kunne ikke finde dig i medarbejderlisten.<br/>
-					Check at medarbejdernummer og navn er indtastet korrekt.</p>
-					<p>Har du fortsat problemer, så kontakt Julie Drewsen på <a href="mailto:kontakt@vorescarlsberg.nu">kontakt@vorescarlsberg.nu</a> eller tlf. 31 34 31 52</p>
+					<p>
+						Vi kunne ikke finde dig i medarbejderlisten.<br />
+						Check at medarbejdernummer og navn er indtastet korrekt.
+					</p>
+					<p>
+						Har du fortsat problemer, så kontakt Julie Drewsen på <a href="mailto:kontakt@vorescarlsberg.nu">kontakt@vorescarlsberg.nu</a> eller tlf. 31 34 31 52
+					</p>
 				</div>
-				</div>
+			</div>
 			<div class="row buttons buttons-1">
 				<div class="col-sm-6 ">
-					<input type="submit" class="btn btn-primary" value="Ja, jeg vil gerne komme!" ng-click="submitForm(true)"/>
+					<input type="submit" class="btn btn-primary" value="Ja, jeg vil gerne komme!" ng-click="submitForm(true)" />
 				</div>
 				<div class="col-sm-6 ">
-					<input type="submit" class="btn btn-default" value="Æv, jeg kan ikke komme" ng-click="submitForm(false)"/>
+					<input type="submit" class="btn btn-default" value="Æv, jeg kan ikke komme" ng-click="submitForm(false)" />
 				</div>
 			</div>
 		</div>
+	</form>
 
+	<form name="form2" novalidate>
 		<div ng-if="formFlow > 1 && formFlow < 3">
 			<div class="row step2-intro">
 				<div class="col-md-offset-3 col-md-6">
@@ -82,7 +90,8 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper validation">
-						<input type="text" required maxlength="8" ng-model="guest.phoneNo"/>
+						<input type="text" required maxlength="8" ng-change="change()" ng-model="guest.phoneNo" />
+						<div class="req">*</div>
 					</div>
 				</div>
 			</div>
@@ -121,50 +130,75 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<label>Hvad er din yndlingshobby/fritidsinteresse?</label>
+					<label>Vælg dine to yndlingshobbies/fritidsinteresser</label>
 				</div>
 				<div class="col-md-5">
-					<div class="input-wrapper">
-						<select ng-model="guest.hobby1">
-							<option value="">Vælg...</option>
-							<option>Biler</option>
-							<option>Fodbold</option>
-							<option>Cykling</option>
-							<option>Musikband</option>
-							<option>Blomster</option>
-							<option>Badminton</option>
-							<option>Sejle</option>
-							<option>Fiske</option>
-							<option>Øl</option>
-							<option>Haven</option>
-							<option>Tatoveringer</option>
-						</select>
-					</div>
+					<label class="for-chk" ng-repeat="hobby in hobbies">
+						<input type="checkbox"
+							   name="selectedHobbies[]"
+							   value="{{ hobby.name }}"
+							   ng-click="hobbyClick(hobby)"
+							   ng-model="hobby.selected"> {{ hobby.name }}
+					</label>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" ng-show="isOtherHobbySelected()">
 				<div class="col-md-4">
-					<label>Hvad er din nr. 2 hobby/fritidsinteresse?</label>
+					<label>Beskriv din hobby her:</label>
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<select ng-model="guest.hobby2">
-							<option value="">Vælg...</option>
-							<option>Biler</option>
-							<option>Fodbold</option>
-							<option>Cykling</option>
-							<option>Musikband</option>
-							<option>Blomster</option>
-							<option>Badminton</option>
-							<option>Sejle</option>
-							<option>Fiske</option>
-							<option>Øl</option>
-							<option>Haven</option>
-							<option>Tatoveringer</option>
-						</select>
+						<input type="text" maxlength="25" ng-model="guest.otherHobby" />
+						<div class="req">*</div>
 					</div>
 				</div>
 			</div>
+			@*<div class="row">
+					<div class="col-md-4">
+						<label>Hvad er din yndlingshobby/fritidsinteresse?</label>
+					</div>
+					<div class="col-md-5">
+						<div class="input-wrapper">
+							<select ng-model="guest.hobby1">
+								<option value="">Vælg...</option>
+								<option>Biler</option>
+								<option>Fodbold</option>
+								<option>Cykling</option>
+								<option>Musikband</option>
+								<option>Blomster</option>
+								<option>Badminton</option>
+								<option>Sejle</option>
+								<option>Fiske</option>
+								<option>Øl</option>
+								<option>Haven</option>
+								<option>Tatoveringer</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<label>Hvad er din nr. 2 hobby/fritidsinteresse?</label>
+					</div>
+					<div class="col-md-5">
+						<div class="input-wrapper">
+							<select ng-model="guest.hobby2">
+								<option value="">Vælg...</option>
+								<option>Biler</option>
+								<option>Fodbold</option>
+								<option>Cykling</option>
+								<option>Musikband</option>
+								<option>Blomster</option>
+								<option>Badminton</option>
+								<option>Sejle</option>
+								<option>Fiske</option>
+								<option>Øl</option>
+								<option>Haven</option>
+								<option>Tatoveringer</option>
+							</select>
+						</div>
+					</div>
+				</div>*@
 			<div class="row">
 				<div class="col-md-4">
 					<label>Hvilken sang skal bandet spille?</label>
@@ -188,13 +222,13 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<input type="text" ng-model="guest.allergies"/>
+						<input type="text" ng-model="guest.allergies" />
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6 remark">
-					<p>Har du en kollega, der har gjort en ekstra indsats ifm. festen? Skriv navn og afdeling her:</p>
+					<p>Har du en kollega, der har gjort en ekstra indsats i forbindelse med festen? Så skriv navn og afdeling her:</p>
 				</div>
 			</div>
 			<div class="row">
@@ -203,7 +237,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<input type="text" ng-model="guest.colleagueName"/>
+						<input type="text" ng-model="guest.colleagueName" />
 					</div>
 				</div>
 			</div>
@@ -218,9 +252,15 @@
 				</div>
 			</div>
 
+			<div class="row validation-msg" ng-if="validationError">
+				<div class="col-md-offset-3 col-md-6 remark">
+					<p>* angiver et påkrævet felt</p>
+				</div>
+			</div>
+
 			<div class="row buttons buttons-2">
 				<div class="col-sm-12 ">
-					<input type="submit" class="btn btn-primary" value="Tilmeld mig" ng-click="completeSubmission(form)"/>
+					<input type="submit" class="btn btn-primary" value="Tilmeld mig" ng-click="submitFinalForm(form2)" />
 				</div>
 			</div>
 		</div>

@@ -110,9 +110,9 @@
     <Compile Include="..\.common\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Application\Services\ExportToExcelService.cs" />
     <Compile Include="Application\Services\GuestService.cs" />
     <Compile Include="Application\Services\LoginService.cs" />
-    <Compile Include="Application\Services\Mailer.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,6 +123,7 @@
     <Compile Include="Web\ApiControllers\GuestController.cs" />
     <Compile Include="Web\Controllers\HomeController.cs" />
     <Compile Include="Web\Models\EmployeeModel.cs" />
+    <Compile Include="Web\Models\ExportGuestModel.cs" />
     <Compile Include="Web\Models\GuestModel.cs" />
     <Compile Include="Web\Models\LoginModel.cs" />
   </ItemGroup>

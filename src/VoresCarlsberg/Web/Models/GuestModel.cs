@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PetaPoco;
 
 namespace VoresCarlsberg.Web.Models
 {
@@ -15,8 +16,8 @@ namespace VoresCarlsberg.Web.Models
 		public string Bus { get; set; }
 
 		public string FavoriteBeer { get; set; }
-		public string Hobby1 { get; set; }
-		public string Hobby2 { get; set; }
+		public string SelectedHobbies { get; set; }
+		public string OtherHobby { get; set; }
 		public string BandSong { get; set; }
 
 		public string Allergies { get; set; }
@@ -27,5 +28,10 @@ namespace VoresCarlsberg.Web.Models
 		public DateTime Created { get; set; }
 		public DateTime Edited { get; set; }
 
+		// ----------------------------------------------------
+
+		[ResultColumn]
+		public string FullName { get; set; }
+	
 	}
 }

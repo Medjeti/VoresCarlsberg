@@ -1,6 +1,5 @@
 ﻿.outer-container {
 	background: #fff;
-	margin-top: 50px;
 	padding-bottom: 40px;
 }
 
@@ -23,9 +22,15 @@ form {
 		font-family: CarlsbergBold;		
 		//line-height: 50px;
 		 font-size: 14px;
+
+		 &.for-chk {
+			 font-family: CarlsbergRegular;
+			 display: block;
+			 margin-left: 1em;
+		 }
 	}
 
-	.input-wrapper.validation {
+	.input-wrapper.valasdidation {
 		&::after {
 			content: "*";
 			font-weight: 700;
@@ -35,7 +40,6 @@ form {
 			right: 35px;
 			top: 28.57142857px;
 			color: #8a968f;
-
 		}
 	}
 
@@ -45,7 +49,19 @@ form {
 		padding: 0 20px;
 		height: 50px;
 		width: 100%;
-		margin-bottom: 20px;			
+		margin-bottom: 20px;	
+		
+		& + .req {
+			//content: "*";
+			font-weight: 700;
+			font-size: 1em;
+			position: absolute;
+			line-height: 0;
+			right: 35px;
+			top: 28.57142857px;
+			color: #8a968f;
+		}	
+		
 	}
 
 	textarea {
@@ -55,6 +71,10 @@ form {
 
 	.btn {
 		font-size: 14px;
+	}
+
+	a {
+		text-decoration: underline;
 	}
 
 	.buttons-1 {
@@ -87,15 +107,23 @@ form {
 		margin-bottom: 2em;	
 	}
 
+	// --------------------
+
+	&.ng-submitted .ng-invalid-required + .req {
+		color: red;
+	}
+
 }
 
 // ------------------------------------------------------------------------------
 
-@media (min-width: $screen-xs-max) {
-	
-}
 
 @media (min-width: $screen-sm-min) {
+
+	.outer-container {
+		margin: 50px auto;
+	}
+
 	img.logo {
 		width: 400px;
 	}
