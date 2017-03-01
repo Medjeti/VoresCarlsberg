@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace VoresCarlsberg.Web.Models
 {
-	public class SignupModel
+	public class LoginModel
 	{
+		public string EmployeeNo { get; set; }
+		public string FirstName { get; set; }
+
 	}
 }

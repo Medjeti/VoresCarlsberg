@@ -13,15 +13,36 @@
 		// -------------------------------------------------------------------------
 
 		/*jshint validthis:true */
-		this.subscribe = subscribe;
 		this.getDivisions = getDivisions;
+		this.login = login;
+		this.completeSubmission = completeSubmission;
 
+		// -------------------------------------------------------------------------
+		// -------------------------------------------------------------------------
+
+		function login(login) {
+			var response = $http({
+				url: '/api/guest/login',
+				data: login,
+				method: 'POST'
+			});
+
+			return response;
+		}
 
 		// -------------------------------------------------------------------------
 
-		function subscribe(email) {
-		    
+		function completeSubmission(guest) {
+			var response = $http({
+				url: '/api/guest/submit',
+				data: guest,
+				method: 'POST'
+			});
+
+			return response;
 		}
+
+		// -------------------------------------------------------------------------
 
 		function getDivisions() {
 			var list = [

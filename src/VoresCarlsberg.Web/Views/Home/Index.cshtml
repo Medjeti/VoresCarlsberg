@@ -32,7 +32,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper validation">
-						<input type="text" maxlength="25" required ng-model="guest.firstname"/>
+						<input type="text" maxlength="25" required ng-change="change()" ng-model="guest.firstname"/>
 					</div>
 				</div>
 			</div>
@@ -42,36 +42,27 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper validation">
-						<input type="text" maxlength="6" required ng-model="guest.employeenumber" />
+						<input type="text" maxlength="6" required ng-change="change()" ng-model="guest.employeeno" />
 					</div>
 				</div>
 			</div>
-			@*<div class="row">
-				<div class="col-md-offset-1 col-md-3">
-					<label>Vælg afdeling</label>
-				</div>
-				<div class="col-md-5">
-					<div class="input-wrapper">
-						<select ng-options="item as item for item in divisions" required ng-model="guest.division">
-							
-						</select>
-					</div>
-				</div>
-			</div>*@
+		
 		</div>
 
 		<div ng-if="formFlow === 1">
 			<div class="row">
-				<div class="col-md-offset-3 col-md-6 validation-msg" ng-if="form.$submitted && !form.$valid">
-					<p>* angiver et påkrævet felt</p>
+				<div class="col-md-offset-3 col-md-6 login-error" ng-if="loginError">
+					<p>Vi kunne ikke finde dig i medarbejderlisten.<br/>
+					Check at medarbejdernummer og navn er indtastet korrekt.</p>
+					<p>Har du fortsat problemer, så kontakt Julie Drewsen på <a href="mailto:kontakt@vorescarlsberg.nu">kontakt@vorescarlsberg.nu</a> eller tlf. 31 34 31 52</p>
 				</div>
 				</div>
 			<div class="row buttons buttons-1">
 				<div class="col-sm-6 ">
-					<input type="submit" class="btn btn-primary" value="Ja, jeg vil gerne komme!" ng-click="nextStep(form, 2)"/>
+					<input type="submit" class="btn btn-primary" value="Ja, jeg vil gerne komme!" ng-click="submitForm(true)"/>
 				</div>
 				<div class="col-sm-6 ">
-					<input type="submit" class="btn btn-default" value="Æv, jeg kan ikke komme" ng-click="nextStep(form, 0)"/>
+					<input type="submit" class="btn btn-default" value="Æv, jeg kan ikke komme" ng-click="submitForm(false)"/>
 				</div>
 			</div>
 		</div>
@@ -81,8 +72,7 @@
 				<div class="col-md-offset-3 col-md-6">
 					<h3>Hej {{guest.firstname}}!</h3>
 					<p>
-						Vi vil gerne vide lidt mere om dig.<br/>
-						Udfyld venligst de resterende felter for at fuldføre din tilmelding.
+						Du er en vigtig del af <b>"Vores Carlsberg"</b> og for at gøre <b>"Vores Carlsberg"</b> mere vores, vil vi gerne vide lidt mere om dig via vores få spørgsmål, som du finder nedenstående:
 					</p>
 				</div>
 			</div>
@@ -91,8 +81,8 @@
 					<label>Dit telefonnummer</label>
 				</div>
 				<div class="col-md-5">
-					<div class="input-wrapper">
-						<input type="text"  maxlength="8" ng-model="guest.phonenumber"/>
+					<div class="input-wrapper validation">
+						<input type="text" required maxlength="8" ng-model="guest.phoneNo"/>
 					</div>
 				</div>
 			</div>
@@ -103,7 +93,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<select>
+						<select ng-model="guest.bus">
 							<option value="">Vælg...</option>
 							<option>Bus fra A kl. B</option>
 							<option>Bus fra X kl. Y</option>
@@ -119,7 +109,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<select>
+						<select ng-model="guest.favoriteBeer">
 							<option value="">Vælg...</option>
 							<option>Carls Selection</option>
 							<option>Tuborg Classic</option>
@@ -135,7 +125,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<select>
+						<select ng-model="guest.hobby1">
 							<option value="">Vælg...</option>
 							<option>Biler</option>
 							<option>Fodbold</option>
@@ -158,7 +148,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<select>
+						<select ng-model="guest.hobby2">
 							<option value="">Vælg...</option>
 							<option>Biler</option>
 							<option>Fodbold</option>
@@ -181,7 +171,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<select>
+						<select ng-model="guest.bandSong">
 							<option value="">Vælg...</option>
 							<option>Militskvinder</option>
 							<option>Picnic</option>
@@ -194,28 +184,43 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<label>Har du madallergier e.l.?</label>
+					<label>Har du madallergier e.l.? Udfyld venligst her:</label>
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<input type="text" />
+						<input type="text" ng-model="guest.allergies"/>
 					</div>
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-md-offset-3 col-md-6 remark">
+					<p>Har du en kollega, der har gjort en ekstra indsats ifm. festen? Skriv navn og afdeling her:</p>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-4">
-					<label>Har du en kollega, der har gjort en ekstra indsats ifm. festen? Skriv navn og afdeling her.</label>
+					<label>Navn</label>
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<textarea></textarea>
+						<input type="text" ng-model="guest.colleagueName"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-1 col-md-3">
+					<label>Afdeling</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<select ng-options="item as item for item in divisions" ng-model="guest.colleagueDivision"></select>
 					</div>
 				</div>
 			</div>
 
 			<div class="row buttons buttons-2">
 				<div class="col-sm-12 ">
-					<input type="submit" class="btn btn-primary" value="Tilmeld mig" ng-click="nextStep(form, 3)"/>
+					<input type="submit" class="btn btn-primary" value="Tilmeld mig" ng-click="completeSubmission(form)"/>
 				</div>
 			</div>
 		</div>
@@ -238,7 +243,9 @@
 				<div class="col-md-offset-3 col-md-6">
 					<h3>Vi glæder os til at se dig!</h3>
 					<p>
-						Tak for din tilmelding til <b>"Vores Carlsberg"</b>.<br/>
+						Tak for din tilmelding til <b>"Vores Carlsberg"</b>.
+					</p>
+					<p>
 						Hvis du ønsker at ændre dine indtastninger, kan du altid besøge hjemmesiden igen og logge ind med dit navn og medarbejdernr.
 					</p>
 				</div>

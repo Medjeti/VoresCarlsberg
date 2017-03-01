@@ -8,13 +8,24 @@ namespace VoresCarlsberg.Web.Models
 {
 	public class GuestModel
 	{
-		public string Name { get; set; }
-		public string Phone { get; set; }
-		public string Email { get; set; }
-		public bool Newsletter { get; set; }
-		public string DealerName { get; set; }
-		public string DealerEmail { get; set; }
-		public string PostalCode { get; set; }
-		public string Description { get; set; }
+		public bool IsAttending { get; set; }
+		public int EmployeeNo { get; set; }
+		public string PhoneNo { get; set; }
+
+		public string Bus { get; set; }
+
+		public string FavoriteBeer { get; set; }
+		public string Hobby1 { get; set; }
+		public string Hobby2 { get; set; }
+		public string BandSong { get; set; }
+
+		public string Allergies { get; set; }
+
+		public string ColleagueName { get; set; }
+		public string ColleagueDivision { get; set; }
+
+		public DateTime Created { get; set; }
+		public DateTime Edited { get; set; }
+
 	}
 }

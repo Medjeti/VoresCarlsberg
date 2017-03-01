@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Security;
 using VoresCarlsberg.Application.Services;
 using VoresCarlsberg.Web.Models;
 
@@ -18,38 +19,42 @@ namespace VoresCarlsberg.Web.ApiControllers
 	{
 		[HttpPost]
 		[Route("addguest")]
-		public bool AddGuest(GuestModel model)
+		public GuestModel AddGuest(GuestModel guest)
+		{	
+			return guest;
+		}
+
+		// ---------------------------------------------------------------------------
+
+		[HttpPost]
+		[Route("login")]
+		public IHttpActionResult Login(LoginModel login)
 		{
-			// Send reset password e-mail
-			// --------------------------
-			var templatePath = "/templates/requestmeeting.html";
-			var sr = new StreamReader(HttpContext.Current.Server.MapPath(templatePath));
-			var template = sr.ReadToEnd();
+			var loginService = new LoginService();
+			var loggedIn = loginService.LoginUser(login);
 
-            sr.Close();
+			if (loggedIn)
+			{
+				FormsAuthentication.SetAuthCookie(login.EmployeeNo, false);
 
-			var mailer = new Mailer(template);
-			mailer.BodyMimeType = Mailer.MimeType.HTML;
-			mailer.UseAsyncSend = false;
+				var guestService = new GuestService();
+				var guest = guestService.GetGuest(login);
 
-			var fromEmail = new MailAddress(ConfigurationManager.AppSettings["RequestMeeting.FromAddress"], "Vores Carlsberg");
-			var toEmail =
-				HttpContext.Current.IsDebuggingEnabled
-					? new MailAddress("mikael@noerd.dk")
-					: new MailAddress(model.DealerEmail);
-			var templateValues = new Dictionary<string, string>();
-			var subject = ConfigurationManager.AppSettings["RequestMeeting.SubjectLine"];
-
-			templateValues.Add("%STORENAME%", model.DealerName);
-			templateValues.Add("%CLIENTNAME%", model.Name);
-			templateValues.Add("%CLIENTPHONENO%", model.Phone);
-			templateValues.Add("%CLIENTEMAIL%", model.Email);
-			templateValues.Add("%CLIENTPOSTALCODE%", model.PostalCode);
-			templateValues.Add("%CLIENTDESCRIPTION%", model.Description);
-
-			mailer.SendMessage(fromEmail, toEmail, subject, templateValues);
+				return Ok(new { Guest = guest });
+			}
 			
-			return true;
+			return Unauthorized();
+			
+		}
+
+		// ---------------------------------------------------------------------------
+
+		[HttpPost]
+		[Route("submit")]
+		public void Submit(GuestModel guest)
+		{
+			var guestService = new GuestService();
+			guestService.SaveGuest(guest);
 		}
 	}
 }

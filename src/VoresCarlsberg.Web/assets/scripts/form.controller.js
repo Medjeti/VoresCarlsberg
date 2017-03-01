@@ -8,32 +8,77 @@
 		// -------------------------------------------------------------------------
 
 		$scope.formFlow = 1;
+		$scope.loginError = false;
 		$scope.guest = {};
 
-		$scope.nextStep = nextStep;
 		$scope.submitForm = submitForm;
+		$scope.completeSubmission = completeSubmission;
+		$scope.loginUser = loginUser;
+		$scope.change = change;
 
 		$scope.divisions = getDivisions();
 		
+		// -------------------------------------------------------------------------
+
+		function loginUser(callback) {
+			var login = {
+				employeeno: $scope.guest.employeeno,
+				firstname: $scope.guest.firstname
+			};
+
+			formService.login(login).success(function (data) {
+				if (data === false) {
+					$scope.loginError = true;
+				} else {
+					callback(data);
+				}
+			}).error(function () {
+				$scope.loginError = true;
+			});
+		}
 		
 		// -------------------------------------------------------------------------
 
-		function nextStep(form, step) {
-			console.log(form);
-			if (form.$valid) {
-				$scope.formFlow = step;
-				if (step === 2) {
-					location.href = "#step2";
-				}
-			} else {
-				
-			}
+		function change() {
+			$scope.loginError = false;
 		}
 
 		// -------------------------------------------------------------------------
 
-		function submitForm() {
-			
+		function submitForm(isAttending) {
+
+			loginUser(function (data) {
+				$scope.guest.isAttending = isAttending;
+				if (isAttending) {
+					var login = $scope.guest;
+
+					if (data.guest) {
+						$scope.guest = data.guest;
+					}
+					$scope.guest.isAttending = true;
+					$scope.guest.firstname = login.firstname;
+					$scope.guest.employeeno = login.employeeno;
+					$scope.formFlow = 2;
+
+					// Make two first fields read-only
+
+				} else {
+					completeSubmission();
+					$scope.formFlow = 0;
+				}
+			});
+
+		}
+
+		// -------------------------------------------------------------------------
+
+		function completeSubmission() {
+
+			formService.completeSubmission($scope.guest).success(function (data) {
+				$scope.formFlow = 3;
+			}).error(function () {
+				alert("Der er desværre sket en fejl.");
+			});
 		}
 
 		// -------------------------------------------------------------------------
