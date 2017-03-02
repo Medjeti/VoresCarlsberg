@@ -67,19 +67,28 @@
 		function getHobbies(guest) {
 			var list = [
 				{ name: "Biler", selected: false },
+				{ name: "Løb", selected: false },
 				{ name: "Fodbold", selected: false },
 				{ name: "Cykling", selected: false },
-				{ name: "Musikband", selected: false },
-				{ name: "Blomster", selected: false },
 				{ name: "Badminton", selected: false },
-				{ name: "Sejle", selected: false },
+				{ name: "Sejlads", selected: false },
 				{ name: "Fiske", selected: false },
-				{ name: "Øl", selected: false },
 				{ name: "Haven", selected: false },
 				{ name: "Tatoveringer", selected: false },
+				{ name: "Yoga", selected: false },
+				{ name: "Styrketræning", selected: false },
+				{ name: "Håndbold", selected: false },
+				{ name: "Computerspil", selected: false },
+				{ name: "Brætspil", selected: false },
+				{ name: "Håndarbejde", selected: false },
+				{ name: "Madlavning", selected: false },
+				{ name: "Fotografering", selected: false },
+				{ name: "Bøger", selected: false },
+				{ name: "Film", selected: false },
+				{ name: "Rejser", selected: false },
 				{ name: "Andet", selected: false }
 			];
-
+			
 			// Populate selected hobbies
 			if (guest && guest.selectedHobbies) {
 				var hobbyArr = guest.selectedHobbies.split(",");

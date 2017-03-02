@@ -13,7 +13,8 @@ namespace VoresCarlsberg.Web.Models
 		public int EmployeeNo { get; set; }
 		public string PhoneNo { get; set; }
 
-		public string Bus { get; set; }
+		public string BusOut { get; set; }
+		public string BusHome { get; set; }
 
 		public string FavoriteBeer { get; set; }
 		public string SelectedHobbies { get; set; }

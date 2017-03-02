@@ -42,7 +42,8 @@ namespace VoresCarlsberg.Application.Services
 			dt.Columns.Add("Lokation");
 
 			dt.Columns.Add("Tlf.");
-			dt.Columns.Add("Bus");
+			dt.Columns.Add("Bus ud");
+			dt.Columns.Add("Bus hjem");
 			dt.Columns.Add("Yndlingsøl");
 			dt.Columns.Add("Hobby 1");
 			dt.Columns.Add("Hobby 2");
@@ -72,7 +73,8 @@ namespace VoresCarlsberg.Application.Services
 					guest.PersonnelSubarea,
 					guest.Location,
 					guest.PhoneNo,
-					guest.Bus,
+					guest.BusOut,
+					guest.BusHome,
 					guest.FavoriteBeer,
 					hobby1,
 					hobby2,
