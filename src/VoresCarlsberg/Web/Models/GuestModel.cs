@@ -32,6 +32,15 @@ namespace VoresCarlsberg.Web.Models
 
 		[ResultColumn]
 		public string FullName { get; set; }
-	
+
+		[ResultColumn]
+		public string Position { get; set; }
+
+		[ResultColumn]
+		public string PersonnelSubarea { get; set; }
+
+		[ResultColumn]
+		public string Location { get; set; }
+
 	}
 }

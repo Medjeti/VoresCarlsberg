@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 
-	angular.module('VoresCarlsberg').controller('FormCtrl', function ($scope, filterFilter, formService) {
+	angular.module('VoresCarlsberg').controller('FormCtrl', function ($scope, $location, $anchorScroll, filterFilter, formService) {
 
 		// -------------------------------------------------------------------------
 		// Public Method & Variables
@@ -67,6 +67,11 @@
 					$scope.guest.employeeno = login.employeeno;
 					$scope.hobbies = getHobbies($scope.guest);
 					$scope.formFlow = 2;
+					// the element you wish to scroll to.
+					$location.hash('step2');
+
+					// call $anchorScroll()
+					$anchorScroll();
 				} else {
 					completeSubmission(0);
 				}

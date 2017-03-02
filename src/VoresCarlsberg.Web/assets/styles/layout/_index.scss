@@ -148,6 +148,11 @@ form {
 		display: block;
 		text-align: right;
 		padding-top: 14px;
+
+		&.for-chk {
+			 float: none;
+			 text-align: left;
+		 }
 	}
 
 	.remark {
