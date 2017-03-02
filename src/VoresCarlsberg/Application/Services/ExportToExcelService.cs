@@ -34,6 +34,7 @@ namespace VoresCarlsberg.Application.Services
 
 			var dt = new DataTable();
 
+			dt.Columns.Add("Meldt til?");
 			dt.Columns.Add("Medarbejdernr.");
 			dt.Columns.Add("Navn");
 			dt.Columns.Add("Stilling");
@@ -64,6 +65,7 @@ namespace VoresCarlsberg.Application.Services
 				var hobby2 = hobbies.Count() > 1 ? hobbies[1] : "";
 
 				dt.Rows.Add(
+					guest.IsAttending,
 					guest.EmployeeNo, 
 					guest.FullName,
 					guest.Position,
