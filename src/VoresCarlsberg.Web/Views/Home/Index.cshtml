@@ -82,14 +82,6 @@
 					<p>
 						Først har vi brug for lidt praktisk fra dig:
 					</p>
-					<p>
-						- Dit telefonnummer.<br/>
-						- Vil du med bussen til og fra festen?<br/>
-						- Har du mad-allergi e.l. så vil vi gerne vide det.
-					</p>
-					<p>
-						Du er en vigtig del af <b>"Vores Carlsberg"</b> og for at gøre <b>"Vores Carlsberg"</b> mere vores, vil vi gerne vide lidt mere om dig via vores få spørgsmål, som du finder nedenstående:
-					</p>
 				</div>
 			</div>
 			<div class="row">
@@ -109,14 +101,17 @@
 					<label>Jeg vil gerne med bus (ud):</label>
 				</div>
 				<div class="col-md-5">
-					<div class="input-wrapper">
-						<select ng-model="guest.busOut">
+					<div class="input-wrapper validation">
+						<select required ng-model="guest.busOut">
 							<option value="">Vælg...</option>
+							<option>Jeg sørger selv for transport til festen</option>
 							<option>Bus fra Carlsberg Danmark A/S, Kbh. V kl. 13:45</option>
 							<option>Bus fra Carlsberg Danmark A/S Terminal ØST, Taastrup kl. 14:15</option>
-							<option>Bus fra Søndre Saltumvej, Saltum kl. 13:30</option>
-							<option>Jeg sørger selv for transport til festen</option>
+							<option>Bus fra Søndre Saltumvej, Saltum kl. 12:45</option>
+							<option>Bus fra Aalborg Banegård kl. 13:15</option>
+							<option>Bus fra Aarhus Banegård kl. 15:15</option>
 						</select>
+						<div class="req">*</div>
 					</div>
 				</div>
 			</div>
@@ -125,20 +120,41 @@
 					<label>Jeg vil gerne med bus (hjem):</label>
 				</div>
 				<div class="col-md-5">
-					<div class="input-wrapper">
-						<select ng-model="guest.busHome">
+					<div class="input-wrapper validation">
+						<select required ng-model="guest.busHome">
 							<option value="">Vælg...</option>
+							<option>Jeg sørger selv for hjemtransport</option>
 							<option>Bus til Kbh. V kl. 23:30</option>
 							<option>Bus til Kbh. V kl. 01:00</option>
 							<option>Bus til Kbh. V kl. 02:00</option>
 							<option>Bus til Taastrup kl. 23:30</option>
 							<option>Bus til Taastrup kl. 02:00</option>
-							<option>Bus til Saltum 01:00</option>
-							<option>Jeg sørger selv for hjemtransport</option>
+							<option>Bus til Aarhus, Aalborg og Saltum kl. 01:00</option>
 						</select>
+						<div class="req">*</div>
 					</div>
 				</div>
 			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<label>Har du madallergier e.l., så vil vi gerne vide det:</label>
+				</div>
+				<div class="col-md-5">
+					<div class="input-wrapper">
+						<input type="text" ng-model="guest.allergies"/>
+					</div>
+				</div>
+			</div>
+
+			<div class="row step2-intro">
+				<div class="col-md-offset-3 col-md-6">
+					<p>
+						Du er en vigtig del af <b>"Vores Carlsberg"</b> og for at gøre <b>"Vores Carlsberg"</b> mere vores, vil vi gerne vide lidt mere om dig via vores få spørgsmål, som du finder nedenstående:
+					</p>
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="col-md-4">
 					<label>Hvad er din yndlingsøl?</label>
@@ -198,16 +214,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<label>Har du madallergier e.l.? Udfyld venligst her:</label>
-				</div>
-				<div class="col-md-5">
-					<div class="input-wrapper">
-						<input type="text" ng-model="guest.allergies" />
-					</div>
-				</div>
-			</div>
+			
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6 remark">
 					<p>Har du en kollega, der har gjort en ekstra indsats i forbindelse med festen? Så skriv navn og afdeling her, så vi kan sige pænt tak til dem til festen:</p>
@@ -239,7 +246,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="input-wrapper">
-						<textarea ng-model="guest.colleagueDesc"></textarea>
+						<textarea ng-model="guest.colleagueDescription"></textarea>
 					</div>
 				</div>
 			</div>
@@ -273,12 +280,17 @@
 		<div ng-if="formFlow === 3">
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6">
-					<h3>Vi glæder os til at se dig!</h3>
 					<p>
-						Tak for din tilmelding til <b>"Vores Carlsberg"</b>.
+						Du er nu tilmeldt <b>"Vores Carlsberg"</b>.
 					</p>
+					<h3>
+						Vi glæder os til at se og fejre dig!
+					</h3>
 					<p>
 						Hvis du ønsker at ændre dine indtastninger, kan du altid besøge hjemmesiden igen og logge ind med dit navn og medarbejdernr.
+					</p>
+					<p class="center">
+						<a href="/" target="_self" class="btn btn-primary">Til start</a>
 					</p>
 				</div>
 			</div>

@@ -73,8 +73,16 @@ form {
 		font-size: 14px;
 	}
 
+	p.center {
+		text-align: center;
+	}
+
 	a {
 		text-decoration: underline;
+
+		&.btn {
+			text-decoration: none;
+		}
 	}
 
 	.buttons-1 {
@@ -104,6 +112,7 @@ form {
 	}
 
 	.step2-intro {
+		margin-top: 1em;
 		margin-bottom: 2em;	
 	}
 

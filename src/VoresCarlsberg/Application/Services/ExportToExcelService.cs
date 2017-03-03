@@ -51,6 +51,7 @@ namespace VoresCarlsberg.Application.Services
 			dt.Columns.Add("Allergier");
 			dt.Columns.Add("Kollega navn");
 			dt.Columns.Add("Kollega afdeling");
+			dt.Columns.Add("Kollega beskrivelse");
 
 			dt.Columns.Add("Oprettet");
 			dt.Columns.Add("Redigeret");
@@ -82,6 +83,7 @@ namespace VoresCarlsberg.Application.Services
 					guest.Allergies,
 					guest.ColleagueName,
 					guest.ColleagueDivision,
+					guest.ColleagueDescription,
 					guest.Created,
 					guest.Edited
 				);

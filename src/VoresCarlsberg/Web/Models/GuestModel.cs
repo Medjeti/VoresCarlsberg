@@ -25,6 +25,8 @@ namespace VoresCarlsberg.Web.Models
 
 		public string ColleagueName { get; set; }
 		public string ColleagueDivision { get; set; }
+		public string ColleagueDescription { get; set; }
+
 
 		public DateTime Created { get; set; }
 		public DateTime Edited { get; set; }
