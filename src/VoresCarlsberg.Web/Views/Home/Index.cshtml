@@ -157,32 +157,65 @@
 
 			<div class="row">
 				<div class="col-md-4">
-					<label>Hvad er din yndlingsøl?</label>
+					<label>Hvad drikker du helst?</label>
 				</div>
 				<div class="col-md-5">
-					<div class="input-wrapper">
-						<select ng-model="guest.favoriteBeer">
+					<div class="input-wrapper validation">
+						<select required ng-model="guest.favoriteBeer">
 							<option value="">Vælg...</option>
-							<option>Carls Selection</option>
+							<option>Grimbergen Blonde</option>
+							<option>Grimbergen Double-Ambrée</option>
+							<option>Grimbergen Blanche</option>
+							<option>Brooklyn East IPA</option>
+							<option>Brooklyn Lager</option>
+							<option>Brooklyn Scorcher IPA</option>
+							<option>Jacobsen Brown Ale</option>
+							<option>Jacobsen Saaz Blonde</option>
+							<option>Jacobsen India Pale Ale</option>
+							<option>Jacobsen Pale Ale</option>
+							<option>Brewmasters India Pale Ale</option>
+							<option>Carlsberg Pilsner</option>
+							<option>Carlsberg Nordic</option>
+							<option>Somersby Apple</option>
+							<option>Somersby Blueberry</option>
+							<option>Garage Hard Lemonade</option>
+							<option>Garage Hard Ginger</option>
+							<option>Tuborg Rå</option>
+							<option>Tuborg Guld</option>
 							<option>Tuborg Classic</option>
-							<option>Brewmasters Collection</option>
-							<option>Semper Ardens</option>
+							<option>Tuborg Squash</option>
 						</select>
+						<div class="req">*</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<label>Vælg dine to yndlingshobbies/fritidsinteresser</label>
+					<label>Hvad vil du helst tale med din kollega om hen over frokostbordet?</label>
 				</div>
 				<div class="col-md-5 checkboxes">
-					<label class="for-chk" ng-repeat="hobby in hobbies">
-						<input type="checkbox"
-							   name="selectedHobbies[]"
-							   value="{{ hobby.name }}"
-							   ng-click="hobbyClick(hobby)"
-							   ng-model="hobby.selected"> {{ hobby.name }}
-					</label>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6">
+								<label class="for-chk" ng-repeat="hobby in hobbies.slice(0, (hobbies.length / 2) + 1)">
+									<input type="checkbox"
+										   name="selectedHobbies[]"
+										   value="{{ hobby.name }}"
+										   ng-click="hobbyClick(hobby)"
+										   ng-model="hobby.selected"> {{ hobby.name }}
+								</label>
+							</div>
+							<div class="col-sm-6">
+								<label class="for-chk" ng-repeat="hobby in hobbies.slice((hobbies.length / 2) + 1, hobbies.length)">
+									<input type="checkbox"
+										   name="selectedHobbies[]"
+										   value="{{ hobby.name }}"
+										   ng-click="hobbyClick(hobby)"
+										   ng-model="hobby.selected"> {{ hobby.name }}
+								</label>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row" ng-show="isOtherHobbySelected()">
@@ -202,20 +235,24 @@
 					<label>Hvilken sang skal bandet spille?</label>
 				</div>
 				<div class="col-md-5">
-					<div class="input-wrapper">
-						<select ng-model="guest.bandSong">
+					<div class="input-wrapper validation">
+						<select required ng-model="guest.bandSong">
 							<option value="">Vælg...</option>
-							<option>Militskvinder</option>
-							<option>Picnic</option>
-							<option>Nordhavn Station</option>
-							<option>Lorteparforhold!</option>
-							<option>Fødselsdagssang</option>
+							<option>Told You So – Christopher</option>
+							<option>Kun For Mig – Medina</option>
+							<option>Transparent and Glasslike – Carpark North</option>
+							<option>Superliga – Nephew</option>
+							<option>Dancing Queen – Abba</option>
+							<option>Lorteparforhold! – Magtens Korridorer</option>
+							<option>Militskvinder - Lars H.U.G</option>
+							<option>To Mod Verden – Shaka Loveless</option>
 						</select>
+						<div class="req">*</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="row">
+			@*<div class="row">
 				<div class="col-md-offset-3 col-md-6 remark">
 					<p>Har du en kollega, der har gjort en ekstra indsats i forbindelse med festen? Så skriv navn og afdeling her, så vi kan sige pænt tak til dem til festen:</p>
 				</div>
@@ -249,7 +286,7 @@
 						<textarea ng-model="guest.colleagueDescription"></textarea>
 					</div>
 				</div>
-			</div>
+			</div>*@
 
 			<div class="row validation-msg" ng-if="validationError">
 				<div class="col-md-offset-3 col-md-6 remark">

@@ -86,6 +86,14 @@
 				{ name: "Bøger", selected: false },
 				{ name: "Film", selected: false },
 				{ name: "Rejser", selected: false },
+				{ name: "Boligindretning", selected: false },
+				{ name: "Byggeprojekter", selected: false },
+				{ name: "Blomsterbinding", selected: false },
+				{ name: "Superhelte", selected: false },
+				{ name: "Det du så i fjernsynet i går", selected: false },
+				{ name: "Husdyr", selected: false },
+				{ name: "Skiferie", selected: false },
+				{ name: "Tegneserier", selected: false },
 				{ name: "Andet", selected: false }
 			];
 			

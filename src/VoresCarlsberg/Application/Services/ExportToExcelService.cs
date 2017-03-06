@@ -29,7 +29,7 @@ namespace VoresCarlsberg.Application.Services
 		{
 			var guests =
 				_db.Query<GuestModel>(
-					"SELECT * FROM Guests INNER JOIN (SELECT EmployeeNo, FullName, Position, PersonnelSubarea, Location FROM Employees) AS tmp1 ON Guests.EmployeeNo = tmp1.EmployeeNo");
+					"SELECT * FROM Guests INNER JOIN (SELECT EmployeeNo, FullName, Position, PersonnelSubarea, Location FROM Employees) AS tmp1 ON Guests.EmployeeNo = tmp1.EmployeeNo ORDER BY Created ASC");
 
 
 			var dt = new DataTable();
@@ -44,14 +44,14 @@ namespace VoresCarlsberg.Application.Services
 			dt.Columns.Add("Tlf.");
 			dt.Columns.Add("Bus ud");
 			dt.Columns.Add("Bus hjem");
-			dt.Columns.Add("Yndlingsøl");
+			dt.Columns.Add("Hvad drikker du helst?");
 			dt.Columns.Add("Hobby 1");
 			dt.Columns.Add("Hobby 2");
 			dt.Columns.Add("Sang til bandet");
 			dt.Columns.Add("Allergier");
-			dt.Columns.Add("Kollega navn");
-			dt.Columns.Add("Kollega afdeling");
-			dt.Columns.Add("Kollega beskrivelse");
+			//dt.Columns.Add("Kollega navn");
+			//dt.Columns.Add("Kollega afdeling");
+			//dt.Columns.Add("Kollega beskrivelse");
 
 			dt.Columns.Add("Oprettet");
 			dt.Columns.Add("Redigeret");
@@ -81,9 +81,9 @@ namespace VoresCarlsberg.Application.Services
 					hobby2,
 					guest.BandSong,
 					guest.Allergies,
-					guest.ColleagueName,
-					guest.ColleagueDivision,
-					guest.ColleagueDescription,
+					//guest.ColleagueName,
+					//guest.ColleagueDivision,
+					//guest.ColleagueDescription,
 					guest.Created,
 					guest.Edited
 				);
