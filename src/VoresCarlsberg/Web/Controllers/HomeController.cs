@@ -11,11 +11,11 @@ namespace VoresCarlsberg.Web.Controllers
 	{
 		public ActionResult Index()
 		{
-			var url = Request.Headers["HOST"];
-			if (url.Contains("vorescarlsberg.nu") && !url.Contains("unoeuro"))
-			{
-				return null;
-			}
+			//var url = Request.Headers["HOST"];
+			//if (url.Contains("vorescarlsberg.nu") && !url.Contains("unoeuro"))
+			//{
+			//	return null;
+			//}
 			
 			return View();
 		}

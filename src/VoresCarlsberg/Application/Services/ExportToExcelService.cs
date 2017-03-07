@@ -59,7 +59,7 @@ namespace VoresCarlsberg.Application.Services
 			foreach (var guest in guests)
 			{
 				var otherKeyword = "Andet";
-				var hobbiesString = guest.SelectedHobbies.Replace(otherKeyword, guest.OtherHobby);
+				var hobbiesString = guest.SelectedHobbies?.Replace(otherKeyword, guest.OtherHobby) ?? "";
 				var hobbies = hobbiesString.Split(',');
 				//var hobby1 = hobbies.Any() ? hobbies[0] : "";
 				//var hobby2 = hobbies.Count() > 1 && hobbies[1] != otherKeyword ? hobbies[1] : guest.OtherHobby;
