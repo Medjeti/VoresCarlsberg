@@ -7,7 +7,9 @@
 		// Public Method & Variables
 		// -------------------------------------------------------------------------
 
-		$scope.formFlow = 1;
+		//alert(new Date().getTime() > new Date(2017, 2, 24, 20).getTime());
+
+		$scope.formFlow = 1; // new Date().getTime() > new Date(2017, 2, 25, 7).getTime() ? - 2 : 1;
 		$scope.loginError = false;
 		$scope.guest = {};
 		//$scope.selectedHobbies = [];

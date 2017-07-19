@@ -7,8 +7,16 @@
 <div class="container outer-container" ng-controller="FormCtrl">
 	<div class="row intro-text">
 		<div class="col-md-12">
-			<img src="/images/logo.png" class="logo" />
+			<img src="/images/logo.png" class="logo"/>
 		</div>
+
+		<div class="col-md-offset-3 col-md-6" ng-if="formFlow === -2">
+			<h2>Øv!</h2>
+			<p>
+				Vi har desværre lukket for tilmeldinger til <b>"Vores Carlsberg" fest</b>.
+			</p>
+		</div>
+
 		<div class="col-md-offset-3 col-md-6" ng-if="formFlow > 0 && formFlow < 3">
 			<h2>Kære kollega!</h2>
 			<p>
